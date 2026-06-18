@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+.venv/
+
+# VS Code
+.vscode/
+
+# Streamlit cache
+.streamlit/
+
+# Python cache
+.pytest_cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Model outputs
+outputs/*.pt
+
+# Large datasets
+datasets/
+
+# Temporary files
+*.log
