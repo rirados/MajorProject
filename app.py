@@ -238,10 +238,10 @@ def main():
                     st.success(
                         "In Distribution"
                     )
-                save_path = f"outputs/encrypted_{uploaded_file.name}"
-                enc_path, key_path = encrypt_image(image, save_path=save_path)
-                st.info(f"Image encrypted and saved to: {enc_path}")
-                st.info(f"Key saved to: {key_path}")
+                    save_path = f"outputs/encrypted_{uploaded_file.name}"
+                    enc_path, key_path = encrypt_image(image, save_path=save_path)
+                    st.info(f"Image encrypted and saved to: {enc_path}")
+                    st.info(f"Key saved to: {key_path}")
             # -------------------------
             # Top 3 Closest Classes
             # -------------------------
