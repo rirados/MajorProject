@@ -12,7 +12,7 @@ from models.feature_extractor import (
 from detector.ood_detector import (
     OODDetector
 )
-
+from encryption.aes_encryption import encrypt_image
 
 # --------------------------------------------------
 # CIFAR-10 class labels
@@ -238,7 +238,10 @@ def main():
                     st.success(
                         "In Distribution"
                     )
-
+                save_path = f"outputs/encrypted_{uploaded_file.name}"
+                enc_path, key_path = encrypt_image(image, save_path=save_path)
+                st.info(f"Image encrypted and saved to: {enc_path}")
+                st.info(f"Key saved to: {key_path}")
             # -------------------------
             # Top 3 Closest Classes
             # -------------------------
