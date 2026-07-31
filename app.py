@@ -3,6 +3,7 @@ import streamlit as st
 
 from PIL import Image
 from torchvision.models import ResNet18_Weights
+from encryption.aes_encryption import encrypt_image, decrypt_image
 
 from models.feature_extractor import (
     load_feature_extractor,
@@ -242,6 +243,21 @@ def main():
                     enc_path, key_path = encrypt_image(image, save_path=save_path)
                     st.info(f"Image encrypted and saved to: {enc_path}")
                     st.info(f"Key saved to: {key_path}")
+
+            # Decrypt button to verify
+                if st.button("🔓 Decrypt & Verify"):
+                    dec_path = decrypt_image(
+                    enc_path,
+                    key_path,
+                    save_path=f"outputs/decrypted_{uploaded_file.name}"
+                    )
+                    dec_image = Image.open(dec_path)
+                    st.image(
+                        dec_image,
+                        caption="Decrypted Image",
+                        use_container_width=True
+                    )
+                    st.success("✅ Decryption successful!")
             # -------------------------
             # Top 3 Closest Classes
             # -------------------------
